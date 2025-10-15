@@ -48,7 +48,7 @@ graph TB
     subgraph "Blockchain Layer"
         Numbers[Numbers Protocol<br/>Capture API]
         Mainnet[Numbers Mainnet<br/>ERC-7053]
-        Explorer[Blockchain Explorer<br/>verify.numbersprotocol.io]
+        Explorer[Blockchain Explorer<br/>captureapp.xyz]
     end
     
     UI --> Form
@@ -121,7 +121,7 @@ sequenceDiagram
     Frontend-->>User: 12. Show Success + Timeline
     
     User->>Frontend: 13. Click "Verify on Blockchain"
-    Frontend->>Explorer: 14. Open Explorer<br/>verify.numbersprotocol.io/asset/{nid}
+    Frontend->>Explorer: 14. Open Explorer<br/>captureapp.xyz/asset/{nid}
     Explorer-->>User: 15. Show Blockchain Proof<br/>(Transaction, Metadata, History)
     
     Note over User,Explorer: ✅ Event Permanently Recorded on Blockchain!
@@ -175,7 +175,7 @@ Event when check-out is confirmed with final property condition.
 
 ### Prerequisites
 - Node.js 18+ 
-- Numbers Protocol API Key ([Get it here](https://verify.numbersprotocol.io/))
+- Numbers Protocol API Key ([Get it here](https://captureapp.xyz/))
 
 ### Local Development
 
