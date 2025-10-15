@@ -1,0 +1,30 @@
+{
+  "name": "proofsy-server",
+  "version": "1.0.0",
+  "description": "Proofsy - Rental Booking System with Blockchain Verification",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.17.1",
+    "axios": "^1.6.0",
+    "c2pa": "^0.30.15",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "form-data": "^4.0.4",
+    "multer": "^2.0.2",
+    "prisma": "^6.17.1",
+    "sharp": "^0.34.4"
+  },
+  "keywords": [
+    "capture",
+    "api",
+    "blockchain"
+  ],
+  "author": "",
+  "license": "MIT"
+}

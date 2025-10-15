@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proofsy - Blockchain-Powered Rental Verification</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Landing Page -->
+    <div id="landingPage" class="page-container">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="#">
+                    <i class="fas fa-shield-alt me-2"></i>Proofsy
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#features">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#how-it-works">How It Works</a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-gradient ms-3" onclick="showAuthPage()">
+                                Get Started <i class="fas fa-arrow-right ms-2"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="gradient-blur blur-1"></div>
+            <div class="gradient-blur blur-2"></div>
+            <div class="gradient-blur blur-3"></div>
+            
+            <div class="container hero-content">
+                <div class="row align-items-center min-vh-100">
+                    <div class="col-lg-6 text-white">
+                        <div class="badge glass-badge mb-4">
+                            <i class="fas fa-link me-2"></i>Powered by Numbers Protocol Mainnet
+                        </div>
+                        <h1 class="display-3 fw-bold mb-4">
+                            Transparent Rental<br/>
+                            <span class="gradient-text">Verification</span>
+                        </h1>
+                        <p class="lead mb-4 text-white-75">
+                            Every step of your rental process permanently recorded on blockchain. 
+                            Secure, transparent, and verifiable proof for landlords and tenants.
+                        </p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <button class="btn btn-gradient btn-lg px-5" onclick="showAuthPage()">
+                                Start Now <i class="fas fa-rocket ms-2"></i>
+                            </button>
+                            <button class="btn btn-outline-light btn-lg px-5" onclick="scrollToSection('how-it-works')">
+                                Learn More <i class="fas fa-play-circle ms-2"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="mt-5 d-flex gap-4 text-white-75">
+                            <div>
+                                <div class="h3 fw-bold text-white mb-0">100%</div>
+                                <small>Transparent</small>
+                            </div>
+                            <div>
+                                <div class="h3 fw-bold text-white mb-0">ERC-7053</div>
+                                <small>Standard</small>
+                            </div>
+                            <div>
+                                <div class="h3 fw-bold text-white mb-0">On-Chain</div>
+                                <small>Verification</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <div class="hero-card glass-card p-5">
+                            <div class="mb-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="status-indicator me-3"></div>
+                                    <span class="text-white">System Status: <strong id="statusText">Live</strong></span>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-preview">
+                                <div class="timeline-step completed">
+                                    <div class="step-icon"><i class="fas fa-calendar-check"></i></div>
+                                    <div class="step-content">
+                                        <div class="step-title">Booking Created</div>
+                                        <div class="step-hash">NID: bafkrei...</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-step completed">
+                                    <div class="step-icon"><i class="fas fa-key"></i></div>
+                                    <div class="step-content">
+                                        <div class="step-title">Check-In Confirmed</div>
+                                        <div class="step-hash">NID: bafkrei...</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-step">
+                                    <div class="step-icon"><i class="fas fa-search"></i></div>
+                                    <div class="step-content">
+                                        <div class="step-title">Inspection Logged</div>
+                                        <div class="step-hash">Pending...</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-3">Why Choose Proofsy?</h2>
+                    <p class="text-muted lead">Built on blockchain technology for maximum security and transparency</p>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="feature-card glass-card p-4 h-100">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Blockchain Security</h5>
+                            <p class="text-muted">Every rental event is permanently recorded on Numbers Mainnet with cryptographic proof that cannot be altered.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card glass-card p-4 h-100">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Complete Transparency</h5>
+                            <p class="text-muted">Full audit trail of all booking activities with verifiable timestamps accessible to all parties.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card glass-card p-4 h-100">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Media Verification</h5>
+                            <p class="text-muted">Upload photos and videos with C2PA verification to prove authenticity of evidence.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card glass-card p-4 h-100">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Multi-Role Support</h5>
+                            <p class="text-muted">Designed for both landlords and tenants with role-specific dashboards and features.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card glass-card p-4 h-100">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Dispute Resolution</h5>
+                            <p class="text-muted">Immutable proof of all events helps resolve disputes quickly with verifiable evidence.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card glass-card p-4 h-100">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Public Verification</h5>
+                            <p class="text-muted">Anyone can verify events on Numbers Protocol explorer using NID or transaction hash.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-3">How It Works</h2>
+                    <p class="text-muted lead">Simple 10-step process for complete rental verification</p>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="process-timeline">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <div class="step-details">
+                                    <h5>Login or Register</h5>
+                                    <p>Choose your role: Landlord (property owner) or Tenant (renter)</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <div class="step-details">
+                                    <h5>Complete Profile & Property</h5>
+                                    <p>Landlords list properties, Tenants complete profile and search</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <div class="step-details">
+                                    <h5>Create Booking</h5>
+                                    <p>BookingCreated event recorded on Numbers Mainnet blockchain</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <div class="step-details">
+                                    <h5>Check-In Confirmation</h5>
+                                    <p>CheckInConfirmed event with timestamp and proof</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">5</div>
+                                <div class="step-details">
+                                    <h5>Property Inspection</h5>
+                                    <p>InspectionLogged with photos/videos verified via C2PA</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">6</div>
+                                <div class="step-details">
+                                    <h5>Check-Out Confirmation</h5>
+                                    <p>CheckOutConfirmed event marks rental completion</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">7</div>
+                                <div class="step-details">
+                                    <h5>Dispute Resolution (If Needed)</h5>
+                                    <p>CaseClosed event with all evidence on-chain</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">8</div>
+                                <div class="step-details">
+                                    <h5>View Timeline</h5>
+                                    <p>Complete event history with NID and explorer links</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">9</div>
+                                <div class="step-details">
+                                    <h5>Public Verification</h5>
+                                    <p>Anyone can verify events on Numbers Protocol explorer</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">10</div>
+                                <div class="step-details">
+                                    <h5>Complete</h5>
+                                    <p>On-chain rental receipt following ERC-7053 standard</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="gradient-blur blur-4"></div>
+            <div class="container text-center text-white py-5">
+                <h2 class="display-4 fw-bold mb-4">Ready to Get Started?</h2>
+                <p class="lead mb-4">Join landlords and tenants using blockchain for transparent rentals</p>
+                <button class="btn btn-gradient btn-lg px-5" onclick="showAuthPage()">
+                    Create Account Now <i class="fas fa-arrow-right ms-2"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-white py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="fw-bold mb-3"><i class="fas fa-shield-alt me-2"></i>Proofsy</h5>
+                        <p class="text-white-75">Blockchain-powered rental verification platform built on Numbers Protocol Mainnet.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <p class="mb-0">&copy; 2025 Proofsy. All rights reserved.</p>
+                        <small class="text-white-75">Built with ERC-7053 standard</small>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Auth Page (Login/Register) -->
+    <div id="authPage" class="page-container" style="display: none;">
+        <div class="auth-container">
+            <div class="gradient-blur blur-1"></div>
+            <div class="gradient-blur blur-2"></div>
+            
+            <div class="container">
+                <div class="row justify-content-center align-items-center min-vh-100">
+                    <div class="col-md-10 col-lg-8">
+                        <button class="btn btn-link text-white mb-3" onclick="showLandingPage()">
+                            <i class="fas fa-arrow-left me-2"></i>Back
+                        </button>
+                        
+                        <div class="glass-card p-5">
+                            <div class="text-center mb-5">
+                                <h2 class="fw-bold mb-2">Welcome to Proofsy</h2>
+                                <p class="text-muted">Choose your role to get started</p>
+                            </div>
+                            
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-6">
+                                    <div class="role-card" onclick="selectRole('landlord')">
+                                        <div class="role-icon">
+                                            <i class="fas fa-building"></i>
+                                        </div>
+                                        <h5 class="fw-bold mt-3">I'm a Landlord</h5>
+                                        <p class="text-muted mb-0">List properties and manage rentals</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="role-card" onclick="selectRole('tenant')">
+                                        <div class="role-icon">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <h5 class="fw-bold mt-3">I'm a Tenant</h5>
+                                        <p class="text-muted mb-0">Find and book properties</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <p class="text-muted mb-0">
+                                    By continuing, you agree to our Terms of Service and Privacy Policy
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div id="dashboardPage" class="page-container" style="display: none;">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold" href="#">
+                    <i class="fas fa-shield-alt me-2"></i>Proofsy
+                </a>
+                <div class="d-flex align-items-center">
+                    <span class="badge glass-badge me-3">
+                        <i class="fas fa-circle text-success me-1"></i>
+                        <span id="userRole">Landlord</span>
+                    </span>
+                    <button class="btn btn-outline-light btn-sm" onclick="logout()">
+                        <i class="fas fa-sign-out-alt me-1"></i>Logout
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid py-4">
+            <div class="row">
+                <!-- Event Creation Panel -->
+                <div class="col-lg-4 mb-4">
+                    <div class="glass-card p-4 mb-3">
+                        <h5 class="fw-bold mb-4"><i class="fas fa-plus-circle me-2"></i>Create Event</h5>
+                        
+                        <form id="eventForm">
+                            <div class="mb-3">
+                                <label class="form-label">Event Type</label>
+                                <select class="form-select glass-input" id="eventType" required>
+                                    <option value="">Select Event Type</option>
+                                    <option value="BookingCreated">Booking Created</option>
+                                    <option value="CheckInConfirmed">Check-In Confirmed</option>
+                                    <option value="InspectionLogged">Inspection Logged</option>
+                                    <option value="CheckOutConfirmed">Check-Out Confirmed</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Booking ID</label>
+                                <input type="text" class="form-control glass-input" id="bookingId" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Property ID</label>
+                                <input type="text" class="form-control glass-input" id="propertyId" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Actor (Wallet Address)</label>
+                                <input type="text" class="form-control glass-input" id="actor" placeholder="0x..." required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Occurred At</label>
+                                <input type="datetime-local" class="form-control glass-input" id="occurredAt" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Metadata (JSON) - Optional</label>
+                                <select class="form-select glass-input mb-2" id="metadataHelper" onchange="insertMetadataExample()">
+                                    <option value="">Select Example...</option>
+                                    <option value="booking">📋 Booking Details</option>
+                                    <option value="checkin">🔑 Check-In Notes</option>
+                                    <option value="inspection">🔍 Inspection Report</option>
+                                    <option value="issue">⚠️ Issue/Problem Report</option>
+                                    <option value="checkout">🚪 Check-Out Summary</option>
+                                </select>
+                                <textarea class="form-control glass-input" id="metadata" rows="4" placeholder='{"propertyAddress": "123 Main St", "rentAmount": 2000}'></textarea>
+                                <small class="text-muted">
+                                    <i class="fas fa-info-circle me-1"></i>
+                                    Add extra info: property details, amounts, photos, notes, etc. Select example above for templates.
+                                </small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">
+                                    <i class="fas fa-camera me-1"></i>Attach Photos/Videos (Optional)
+                                </label>
+                                <input type="file" class="form-control glass-input" id="eventPhotos" 
+                                       accept="image/*,video/*" multiple onchange="previewEventMedia()">
+                                <small class="text-muted">
+                                    <i class="fas fa-info-circle me-1"></i>
+                                    Upload evidence photos/videos with this event. Max 50MB per file.
+                                </small>
+                            </div>
+
+                            <div id="eventMediaPreview" class="mb-3" style="display: none;">
+                                <label class="form-label">Preview</label>
+                                <div id="eventPreviewContainer" class="d-flex flex-wrap gap-2"></div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-gradient w-100">
+                                <i class="fas fa-paper-plane me-2"></i>Submit to Blockchain
+                                <div class="spinner-border spinner-border-sm ms-2 loading-spinner" role="status"></div>
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Quick Actions -->
+                    <div class="glass-card p-4">
+                        <h6 class="fw-bold mb-3"><i class="fas fa-bolt me-2"></i>Quick Actions</h6>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-outline-primary btn-sm" onclick="loadSampleData('booking')">
+                                <i class="fas fa-calendar-plus me-1"></i>Sample Booking
+                            </button>
+                            <button class="btn btn-outline-success btn-sm" onclick="loadSampleData('checkin')">
+                                <i class="fas fa-key me-1"></i>Sample Check-In
+                            </button>
+                            <button class="btn btn-outline-warning btn-sm" onclick="loadSampleData('inspection')">
+                                <i class="fas fa-search me-1"></i>Sample Inspection
+                            </button>
+                            <button class="btn btn-outline-danger btn-sm" onclick="loadSampleData('checkout')">
+                                <i class="fas fa-door-open me-1"></i>Sample Check-Out
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline View -->
+                <div class="col-lg-8">
+                    <div class="glass-card p-4 mb-4">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h5 class="fw-bold mb-0"><i class="fas fa-history me-2"></i>Event Timeline</h5>
+                            <div class="d-flex gap-2">
+                                <input type="text" id="timelineBookingId" class="form-control glass-input form-control-sm" style="width: 200px;" placeholder="Booking ID">
+                                <button class="btn btn-gradient btn-sm" onclick="loadTimeline()">
+                                    <i class="fas fa-search me-1"></i>Load
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="timelineContainer">
+                            <div class="text-center text-muted py-5">
+                                <i class="fas fa-clock fa-3x mb-3 opacity-50"></i>
+                                <p>Enter a booking ID and click Load to view timeline</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photo Lightbox Modal -->
+    <div class="modal fade" id="photoLightboxModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content" style="background: var(--gray-900); border: 1px solid var(--gray-700);">
+                <div class="modal-header" style="border-bottom: 1px solid var(--gray-700);">
+                    <h5 class="modal-title" id="photoLightboxTitle" style="color: var(--white);">Photo Evidence</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="photoLightboxImage" src="" alt="Photo Evidence" class="img-fluid" style="max-height: 70vh; border-radius: 8px;">
+                    <div class="mt-3" id="photoLightboxInfo" style="color: var(--gray-300); font-size: 0.9rem;"></div>
+                </div>
+                <div class="modal-footer" style="border-top: 1px solid var(--gray-700);">
+                    <a id="photoDownloadBtn" href="" download class="btn btn-outline-primary">
+                        <i class="fas fa-download me-2"></i>Download Photo
+                    </a>
+                    <a id="photoVerifyBtn" href="" target="_blank" class="btn btn-gradient">
+                        <i class="fas fa-external-link-alt me-2"></i>Verify on Blockchain
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Ensure navigation functions are globally accessible
+        window.showLandingPage = showLandingPage;
+        window.showAuthPage = showAuthPage;
+        window.showDashboardPage = showDashboardPage;
+        window.selectRole = selectRole;
+        window.logout = logout;
+        window.scrollToSection = scrollToSection;
+        window.loadTimeline = loadTimeline;
+        window.loadSampleData = loadSampleData;
+        window.insertMetadataExample = insertMetadataExample;
+        window.previewEventMedia = previewEventMedia;
+        window.useThisBooking = useThisBooking;
+    </script>
+</body>
+</html>

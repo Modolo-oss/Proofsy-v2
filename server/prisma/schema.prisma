@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model EventPersist {
+  id              String   @id @default(cuid())
+  idempotencyKey  String   @unique
+  bookingId       String
+  propertyId      String
+  eventType       String
+  actor           String
+  occurredAt      DateTime
+  metadataJson    String
+  mediaCid        String?
+  txHash          String
+  nid             String
+  chain           String
+  createdAt       DateTime @default(now())
+  @@index([bookingId])
+  @@index([nid])
+}
+
+model MediaFile {
+  id              String   @id @default(cuid())
+  originalName    String
+  fileName        String
+  filePath        String
+  fileSize        Int
+  mimeType        String
+  c2paSignature   String?
+  captureCid      String?
+  captureTxHash   String?
+  captureNid      String?
+  verified        Boolean  @default(false)
+  uploadedBy      String
+  bookingId       String?
+  eventId         String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  @@index([bookingId])
+  @@index([eventId])
+  @@index([captureCid])
+}

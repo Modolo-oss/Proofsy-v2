@@ -1,0 +1,32 @@
+{
+  "name": "proofsy",
+  "version": "1.0.0",
+  "description": "Proofsy - Rental Booking System with Blockchain Verification on Numbers Mainnet",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "cd server && npm install && npx prisma migrate deploy && node index.js",
+    "dev": "cd server && npm run dev",
+    "postinstall": "cd server && npm install",
+    "migrate": "cd server && npx prisma migrate deploy",
+    "migrate:dev": "cd server && npx prisma migrate dev"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "keywords": [
+    "blockchain",
+    "rental",
+    "numbers-protocol",
+    "erc-7053",
+    "c2pa",
+    "verification",
+    "rental-booking"
+  ],
+  "author": "Proofsy Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/proofsy.git"
+  }
+}
