@@ -14,13 +14,120 @@
 - **Blockchain Recording**: Every event recorded to Numbers Mainnet with ERC-7053 standard
 - **Timeline View**: Complete event history for each booking with on-chain verification
 - **Media Evidence Upload**: Upload photos/videos with C2PA verification for visual proof
-- **Database Persistence**: SQLite database with Prisma ORM for local storage
+- **Database Persistence**: PostgreSQL database with Prisma ORM for reliable storage
 - **Transparent Proof**: Every event has transaction hash and asset NID for verification
 - **Explorer Links**: Direct links to blockchain explorer for verification
 - **Responsive Design**: Web application accessible from desktop and mobile
 - **Real-time Status**: System status monitoring and Capture API connection
 
-## 🏗️ Architecture
+## 🏗️ System Architecture Diagram
+
+```mermaid
+graph TB
+    subgraph "Frontend Layer"
+        UI[Web UI<br/>Bootstrap 5 + JavaScript]
+        Form[Event Creation Form]
+        Timeline[Timeline View]
+        PhotoUpload[Photo Upload<br/>with C2PA]
+    end
+    
+    subgraph "Backend Layer - Express.js"
+        API[REST API Server<br/>Port 5000]
+        EventAPI[/api/events]
+        MediaAPI[/api/media]
+        HealthAPI[/api/health]
+        Validation[Input Validation<br/>& Idempotency Check]
+    end
+    
+    subgraph "Data Layer"
+        Prisma[Prisma ORM]
+        DB[(PostgreSQL Database)]
+        Uploads[File Storage<br/>/uploads/]
+    end
+    
+    subgraph "Blockchain Layer"
+        Numbers[Numbers Protocol<br/>Capture API]
+        Mainnet[Numbers Mainnet<br/>ERC-7053]
+        Explorer[Blockchain Explorer<br/>verify.numbersprotocol.io]
+    end
+    
+    UI --> Form
+    UI --> Timeline
+    UI --> PhotoUpload
+    
+    Form -->|POST /api/events| EventAPI
+    PhotoUpload -->|POST /api/media| MediaAPI
+    Timeline -->|GET /api/events| EventAPI
+    
+    EventAPI --> Validation
+    MediaAPI --> Validation
+    
+    Validation -->|Store Event| Prisma
+    Validation -->|Submit to Blockchain| Numbers
+    MediaAPI -->|Save File| Uploads
+    
+    Prisma --> DB
+    
+    Numbers -->|Commit ERC-7053| Mainnet
+    Mainnet -->|Return NID + TxHash| Numbers
+    Numbers -->|Blockchain Proof| EventAPI
+    
+    Timeline -->|Verify NID| Explorer
+    
+    DB -.->|EventPersist<br/>MediaFile| Prisma
+    
+    style UI fill:#e1f5ff
+    style API fill:#fff4e1
+    style DB fill:#f0e1ff
+    style Numbers fill:#e1ffe1
+    style Mainnet fill:#ffe1e1
+```
+
+## 🔄 Event Submission Flow
+
+```mermaid
+sequenceDiagram
+    participant User as 👤 User<br/>(Landlord/Tenant)
+    participant Frontend as 🖥️ Frontend
+    participant Backend as ⚙️ Backend API
+    participant Prisma as 📊 Prisma ORM
+    participant DB as 💾 PostgreSQL
+    participant Numbers as 🔗 Numbers API
+    participant Blockchain as ⛓️ Numbers Mainnet
+    participant Explorer as 🔍 Explorer
+
+    User->>Frontend: 1. Fill Event Form<br/>(BookingCreated, CheckIn, etc.)
+    Frontend->>Backend: 2. POST /api/events<br/>{eventType, metadata, actor}
+    
+    Backend->>Backend: 3. Generate Idempotency Key
+    Backend->>Backend: 4. Validate Input<br/>(bookingId, propertyId, actor)
+    
+    Backend->>Prisma: 5. Check Duplicate<br/>(idempotencyKey)
+    Prisma->>DB: Query EventPersist
+    DB-->>Prisma: No duplicate found
+    
+    Backend->>Numbers: 6. Submit to Capture API<br/>POST /assets/
+    Note over Numbers: ERC-7053 Format:<br/>{data, source, metadata}
+    
+    Numbers->>Blockchain: 7. Commit to Mainnet<br/>(Async Transaction)
+    Blockchain-->>Numbers: 8. Return workflow_id<br/>(pending commit)
+    Numbers-->>Backend: 9. Response<br/>{nid, txHash, status}
+    
+    Backend->>Prisma: 10. Store Event
+    Prisma->>DB: INSERT EventPersist<br/>(nid, txHash, metadata)
+    DB-->>Prisma: ✅ Stored
+    
+    Backend-->>Frontend: 11. Success Response<br/>{eventId, nid, txHash}
+    Frontend-->>User: 12. Show Success + Timeline
+    
+    User->>Frontend: 13. Click "Verify on Blockchain"
+    Frontend->>Explorer: 14. Open Explorer<br/>verify.numbersprotocol.io/asset/{nid}
+    Explorer-->>User: 15. Show Blockchain Proof<br/>(Transaction, Metadata, History)
+    
+    Note over User,Explorer: ✅ Event Permanently Recorded on Blockchain!
+```
+
+## 📁 Project Structure
 
 ### Backend (Node.js/Express)
 ```
