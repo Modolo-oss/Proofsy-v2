@@ -181,8 +181,8 @@ Event when check-out is confirmed with final property condition.
 
 1. **Clone Repository**
 ```bash
-git clone https://github.com/yourusername/proofsy.git
-cd proofsy
+git clone https://github.com/Modolo-oss/Proofsy-v2.git
+cd Proofsy-v2
 ```
 
 2. **Install Dependencies**
@@ -218,7 +218,7 @@ Open browser: `http://localhost:5000`
 
 ### One-Click Deploy to Railway
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/yourusername/proofsy)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/Modolo-oss/Proofsy-v2)
 
 ### Manual Deployment Steps
 
@@ -227,7 +227,7 @@ Open browser: `http://localhost:5000`
 git init
 git add .
 git commit -m "Initial commit"
-git remote add origin https://github.com/yourusername/proofsy.git
+git remote add origin https://github.com/Modolo-oss/Proofsy-v2.git
 git push -u origin main
 ```
 
@@ -248,7 +248,7 @@ NODE_ENV=production
 ```
 
 4. **Access Your Deployed App**
-- Railway provides a public URL: `https://proofsy-production.up.railway.app`
+- Railway provides a public URL: `https://proofsy-v2-production.up.railway.app`
 - Your app is now live! 🎉
 
 ### Railway Features
