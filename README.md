@@ -33,9 +33,9 @@ graph TB
     
     subgraph "Backend Layer - Express.js"
         API[REST API Server<br/>Port 5000]
-        EventAPI[/api/events]
-        MediaAPI[/api/media]
-        HealthAPI[/api/health]
+        EventAPI["/api/events"]
+        MediaAPI["/api/media"]
+        HealthAPI["/api/health"]
         Validation[Input Validation<br/>& Idempotency Check]
     end
     
