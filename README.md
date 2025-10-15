@@ -1,5 +1,10 @@
 # Proofsy - Rental Booking System with Blockchain Verification
 
+## 🚀 Live Demo & App
+
+- **🎥 Demo Video**: [Watch Demo on Loom](https://www.loom.com/share/6000ec18327c49378b3b41780766c970?sid=937f9a40-22bd-4373-a6d6-995d9bfac117)
+- **🌐 Live Application**: [Try Proofsy Live](https://proofsy-by-number-protocol.up.railway.app/#)
+
 ## Overview 
 
 **Proofsy** is a responsive web application for recording rental/service processes (property booking, check-in, inspection, and check-out) to the Numbers Mainnet blockchain using the ERC-7053 standard. Every step is recorded transparently, securely, and can be verified in the future with support for photo/video evidence uploads that can be verified using C2PA (Coalition for Content Provenance and Authenticity).
