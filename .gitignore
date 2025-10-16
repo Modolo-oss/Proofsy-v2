@@ -52,12 +52,3 @@ build/
 
 # Railway
 .railway/
-
-# Replit
-.replit
-replit.nix
-.config/
-replit.md
-
-# Attached assets (local only)
-attached_assets/
