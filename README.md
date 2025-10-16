@@ -241,7 +241,7 @@ git push -u origin main
 
 In Railway Dashboard, add these variables:
 ```bash
-NUMBERS_API_KEY=your_numbers_protocol_api_key
+NUMBERS_API_KEY=capture_numbers_protocol_api_key
 USE_NUMBERS_LIVE=true
 NUMBERS_API_BASE=https://api.numbersprotocol.io/api/v3
 NODE_ENV=production
